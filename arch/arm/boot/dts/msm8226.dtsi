@@ -1056,7 +1056,11 @@
 			<1497600000 12>,
 			<1593600000 13>;
 
-		cpu-vdd-supply = <&apc_vreg_corner>;
+		cpu-vdd-supply = <&pm8226_s2>;
+		/* 
+		 * If Userspace Voltage Control is disabled, change this to
+		 * <&apc_vreg_corner>;
+		 */
 	};
 
 	qcom,cpubw {
@@ -1086,6 +1090,14 @@
 			< 1401600 4317 >,
 			< 1497600 4317 >,
 			< 1593600 4317 >;
+=======
+		reg-names = "rcg_base";
+		/* 
+		 * If Userspace Voltage Control is disabled, change this to
+		 * <&apc_vreg_corner>;
+		 */
+		a7_cpu-supply = <&pm8226_s2>;
+>>>>>>> a792cc1... msm: add userspace undervolting interface
 	};
 
 	qcom,ocmem@fdd00000 {
