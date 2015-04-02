@@ -440,8 +440,8 @@ obj-$(CONFIG_MMI_MSM_CLOCK) += mmi-clock.o
 obj-$(CONFIG_MMI_UNIT_INFO) += mmi-lpm.o
 obj-$(CONFIG_FORCE_FAST_CHARGE) += fastchg.o
 
+obj-$(CONFIG_BRICKED_HOTPLUG) += bricked_hotplug.o
+obj-$(CONFIG_INTELLI_HOTPLUG) += intelli_hotplug.o
+obj-$(CONFIG_ALUCARD_HOTPLUG) += alucard_hotplug.o
 
 obj-$(CONFIG_PERFMAP) += perfmap.o
-
-obj-$(CONFIG_ALUCARD_HOTPLUG) += alucard_hotplug.o
-obj-$(CONFIG_BRICKED_HOTPLUG) += bricked_hotplug.o

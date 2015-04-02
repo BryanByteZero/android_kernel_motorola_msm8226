@@ -3191,4 +3191,12 @@ config FORCE_FAST_CHARGE
 	  A simple sysfs interface to force adapters that
 	  are detected as USB to charge as AC.
 
+config INTELLI_HOTPLUG
+	bool "Intelli hotplug driver"
+	depends on HOTPLUG_CPU
+	default y
+	help
+	  An intelligent cpu hotplug driver for
+	  Low Latency Frequency Transition capable processors.
+
 endif
