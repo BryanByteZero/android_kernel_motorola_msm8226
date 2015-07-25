@@ -3078,6 +3078,12 @@ config WALL_CLK_SYSFS
 	 Support the wallclk directory in sysfs filesystem to enable the
 	 wall clock simulation and read the current SFN.
 
+config ALUCARD_HOTPLUG
+			bool "Enable alucard-hotplug cpu hotplug driver"
+			default y
+			help
+			  Generic Alucard-hotplug cpu hotplug driver for ARM SOCs
+
 config KRAIT_REGULATOR
 	bool "Support Kraits powered via ganged regulators in the pmic"
 	help
