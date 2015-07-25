@@ -433,3 +433,7 @@ obj-$(CONFIG_MMI_UNIT_INFO) += mmi-unit-info.o
 obj-$(CONFIG_MMI_SOC_INFO) += mmi_soc_info.o
 obj-$(CONFIG_MMI_MSM_PINMUX) += mmi-pinmux.o
 obj-$(CONFIG_PM_DEBUG) += pm_debug.o
+
+obj-$(CONFIG_PERFMAP) += perfmap.o
+
+obj-$(CONFIG_ALUCARD_HOTPLUG) += alucard_hotplug.o
