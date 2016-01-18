@@ -2933,6 +2933,14 @@ config MSM_VP_REGULATOR
 config HAVE_ARCH_HAS_CURRENT_TIMER
 	bool
 
+config MSM_LIMITER
+	bool "MSM Frequency Limiter Driver"
+	depends on (LCD_NOTIFY || POWERSUSPEND || HAS_EARLYSUSPEND)
+	default y
+	help
+	  The MSM Frequency Limiter Driver controls max frequency limit for each CPU
+	  to desired value on suspend/resume
+
 config MSM_CACHE_DUMP
 	bool "Cache dumping support"
 	help
