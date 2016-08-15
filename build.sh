@@ -18,4 +18,4 @@ make clean && make mrproper
 echo 'Making config'
 make falcon_defconfig
 echo 'Compiling Kernel'
-make -o2 -j4 CONFIG_NO_ERROR_ON_MISMATCH=y
+make -j4 CONFIG_NO_ERROR_ON_MISMATCH=y
