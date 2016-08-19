@@ -103,6 +103,7 @@ config DEVFREQ_GOV_MSM_CPUBW_HWMON
 config SIMPLE_GPU_ALGORITHM
 	bool "Simple GPU algorithm"
 	depends on DEVFREQ_GOV_MSM_ADRENO_TZ
+	default y
 	help
 	  Simple user configurable GPU controlling algorithm
 
