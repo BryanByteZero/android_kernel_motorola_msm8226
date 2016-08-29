@@ -1913,12 +1913,21 @@ config MSM_DEVFREQ_CPUBW
 	  agnostic interface to so that some of the devfreq governors can be
 	  shared across SoCs.
 
+<<<<<<< HEAD
+=======
+config CPU_OVERCLOCK
+	bool "enable CPU overclocking of Cortex A7"
+	default n
+	help
+	  Simple CPU Overclocking Option to 1.6 GHz
+
 config USERSPACE_VOLTAGE_CONTROL
 	bool "Enable Userspace CPU Voltage Control"
 	default y
 	help
 	  Userspace Voltage Control
 
+>>>>>>> d74ea5d... msm: add userspace undervolting interface
 config MSM_AVS_HW
 	bool "Enable Adaptive Voltage Scaling (AVS)"
 	default n
