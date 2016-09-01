@@ -66,11 +66,11 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p1[] = {
  	{ 1,  249600, ACPUPLL, 5, 2,   875000,   875000, 4 },
  	// Standard frequencies part 1 (300 to 787 MHz): use 0.95V to 0.99V
  	{ 1,  300000, PLL0,    4, 2,   950000,   950000, 4 },
- 	{ 1,  384000, ACPUPLL, 5, 2,   970000,   970000, 4 },
- 	{ 1,  600000, PLL0,    4, 0,   9900000,   1000000, 6 },
- 	{ 1,  787200, ACPUPLL, 5, 0,   9900000,   1000000, 6 },
+ 	{ 1,  384000, ACPUPLL, 5, 2,   960000,   960000, 4 },
+ 	{ 1,  600000, PLL0,    4, 0,   970000,   970000, 6 },
+ 	{ 1,  787200, ACPUPLL, 5, 0,   980000,   980000, 6 },
  	// Standard frequencies part 2 (998 MHz to 1.2 GHz): use 1V to 1.025V
- 	{ 1,  998400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
+ 	{ 1,  998400, ACPUPLL, 5, 0,   990000,   990000, 7 },
  	{ 1, 1094400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
  	{ 1, 1190400, ACPUPLL, 5, 0,   1025000,   1025000, 7 },
  	// "Overclock" frequencies, full range (1.3 to 1.6 GHz): Use 1.050V to 1.125V
@@ -89,11 +89,11 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p2[] = {
  	{ 1,  249600, ACPUPLL, 5, 2,   875000,   875000, 4 },
  	// Standard frequencies part 1 (300 to 787 MHz): use 0.95V to 0.99V
  	{ 1,  300000, PLL0,    4, 2,   950000,   950000, 4 },
- 	{ 1,  384000, ACPUPLL, 5, 2,   970000,   970000, 4 },
- 	{ 1,  600000, PLL0,    4, 0,   9900000,   1000000, 6 },
- 	{ 1,  787200, ACPUPLL, 5, 0,   9900000,   1000000, 6 },
+ 	{ 1,  384000, ACPUPLL, 5, 2,   960000,   960000, 4 },
+ 	{ 1,  600000, PLL0,    4, 0,   970000,   970000, 6 },
+ 	{ 1,  787200, ACPUPLL, 5, 0,   980000,   980000, 6 },
  	// Standard frequencies part 2 (998 MHz to 1.2 GHz): use 1V to 1.025V
- 	{ 1,  998400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
+ 	{ 1,  998400, ACPUPLL, 5, 0,   990000,   990000, 7 },
  	{ 1, 1094400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
  	{ 1, 1190400, ACPUPLL, 5, 0,   1025000,   1025000, 7 },
  	// "Overclock" frequencies, full range (1.3 to 1.6 GHz): Use 1.050V to 1.125V
@@ -106,17 +106,17 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p2[] = {
 };
 
 static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p4[] = {
-	// "Underclock" frequencies (96 to 249 MHz): use 0.85V
+    // "Underclock" frequencies (96 to 249 MHz): use 0.85V
  	{ 1,   96000, ACPUPLL, 5, 2,   855000,   855000, 4 },
  	{ 1,  192000, ACPUPLL, 5, 2,   865000,   865000, 4 },
  	{ 1,  249600, ACPUPLL, 5, 2,   875000,   875000, 4 },
  	// Standard frequencies part 1 (300 to 787 MHz): use 0.95V to 0.99V
  	{ 1,  300000, PLL0,    4, 2,   950000,   950000, 4 },
- 	{ 1,  384000, ACPUPLL, 5, 2,   970000,   970000, 4 },
- 	{ 1,  600000, PLL0,    4, 0,   9900000,   1000000, 6 },
- 	{ 1,  787200, ACPUPLL, 5, 0,   9900000,   1000000, 6 },
+ 	{ 1,  384000, ACPUPLL, 5, 2,   960000,   960000, 4 },
+ 	{ 1,  600000, PLL0,    4, 0,   970000,   970000, 6 },
+ 	{ 1,  787200, ACPUPLL, 5, 0,   980000,   980000, 6 },
  	// Standard frequencies part 2 (998 MHz to 1.2 GHz): use 1V to 1.025V
- 	{ 1,  998400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
+ 	{ 1,  998400, ACPUPLL, 5, 0,   990000,   990000, 7 },
  	{ 1, 1094400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
  	{ 1, 1190400, ACPUPLL, 5, 0,   1025000,   1025000, 7 },
  	// "Overclock" frequencies, full range (1.3 to 1.6 GHz): Use 1.050V to 1.125V
@@ -129,17 +129,17 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p4[] = {
 };
 
 static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p6[] = {
-	// "Underclock" frequencies (96 to 249 MHz): use 0.85V
+    // "Underclock" frequencies (96 to 249 MHz): use 0.85V
  	{ 1,   96000, ACPUPLL, 5, 2,   855000,   855000, 4 },
  	{ 1,  192000, ACPUPLL, 5, 2,   865000,   865000, 4 },
  	{ 1,  249600, ACPUPLL, 5, 2,   875000,   875000, 4 },
  	// Standard frequencies part 1 (300 to 787 MHz): use 0.95V to 0.99V
  	{ 1,  300000, PLL0,    4, 2,   950000,   950000, 4 },
- 	{ 1,  384000, ACPUPLL, 5, 2,   970000,   970000, 4 },
- 	{ 1,  600000, PLL0,    4, 0,   9900000,   1000000, 6 },
- 	{ 1,  787200, ACPUPLL, 5, 0,   9900000,   1000000, 6 },
+ 	{ 1,  384000, ACPUPLL, 5, 2,   960000,   960000, 4 },
+ 	{ 1,  600000, PLL0,    4, 0,   970000,   970000, 6 },
+ 	{ 1,  787200, ACPUPLL, 5, 0,   980000,   980000, 6 },
  	// Standard frequencies part 2 (998 MHz to 1.2 GHz): use 1V to 1.025V
- 	{ 1,  998400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
+ 	{ 1,  998400, ACPUPLL, 5, 0,   990000,   990000, 7 },
  	{ 1, 1094400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
  	{ 1, 1190400, ACPUPLL, 5, 0,   1025000,   1025000, 7 },
  	// "Overclock" frequencies, full range (1.3 to 1.6 GHz): Use 1.050V to 1.125V
