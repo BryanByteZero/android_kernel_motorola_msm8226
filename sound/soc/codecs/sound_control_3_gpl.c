@@ -23,7 +23,7 @@
 #include <linux/mfd/wcd9xxx/wcd9306_registers.h>
 
 #define SOUND_CONTROL_MAJOR_VERSION	3
-#define SOUND_CONTROL_MINOR_VERSION	5
+#define SOUND_CONTROL_MINOR_VERSION	4
 
 #define REG_SZ	21
 
@@ -31,7 +31,6 @@ extern struct snd_soc_codec *fauxsound_codec_ptr;
 extern int wcd9xxx_hw_revision;
 
 static int snd_ctrl_locked = 0;
-static int snd_rec_ctrl_locked = 0;
 
 unsigned int tapan_read(struct snd_soc_codec *codec, unsigned int reg);
 int tapan_write(struct snd_soc_codec *codec, unsigned int reg,
@@ -122,7 +121,7 @@ int snd_hax_reg_access(unsigned int reg)
 		case TAPAN_A_CDC_TX2_VOL_CTL_GAIN:
 		case TAPAN_A_CDC_TX3_VOL_CTL_GAIN:
 		case TAPAN_A_CDC_TX4_VOL_CTL_GAIN:
-			if (snd_rec_ctrl_locked > 0)
+			if (snd_ctrl_locked > 0)
 				ret = 0;
 			break;
 		default:
@@ -345,24 +344,6 @@ static ssize_t sound_control_locked_show(struct kobject *kobj, struct kobj_attri
         return sprintf(buf, "%d\n", snd_ctrl_locked);
 }
 
-static ssize_t sound_control_rec_locked_store(struct kobject *kobj,
-                struct kobj_attribute *attr, const char *buf, size_t count)
-{
-	int inp;
-
-	sscanf(buf, "%d", &inp);
-
-	snd_rec_ctrl_locked = inp;
-
-	return count;
-}
-
-static ssize_t sound_control_rec_locked_show(struct kobject *kobj,
-		struct kobj_attribute *attr, char *buf)
-{
-        return sprintf(buf, "%d\n", snd_rec_ctrl_locked);
-}
-
 static struct kobj_attribute sound_reg_sel_attribute =
 	__ATTR(sound_reg_sel,
 		0222,
@@ -416,12 +397,6 @@ static struct kobj_attribute sound_control_locked_attribute =
 		0666,
 		sound_control_locked_show,
 		sound_control_locked_store);
-		
-static struct kobj_attribute sound_control_rec_locked_attribute =
-	__ATTR(gpl_sound_control_rec_locked,
-		0666,
-		sound_control_rec_locked_show,
-		sound_control_rec_locked_store);		
 
 static struct kobj_attribute sound_control_version_attribute =
 	__ATTR(gpl_sound_control_version,
@@ -441,7 +416,6 @@ static struct attribute *sound_control_attrs[] =
 		&headphone_gain_attribute.attr,
 		&headphone_pa_gain_attribute.attr,
 		&sound_control_locked_attribute.attr,
-		&sound_control_rec_locked_attribute.attr,
 		&sound_reg_sel_attribute.attr,
 		&sound_reg_read_attribute.attr,
 		&sound_reg_write_attribute.attr,
@@ -491,4 +465,3 @@ module_exit(sound_control_exit);
 MODULE_LICENSE("GPL and additional rights");
 MODULE_AUTHOR("Paul Reioux <reioux@gmail.com>");
 MODULE_DESCRIPTION("Sound Control Module 3.x");
-
