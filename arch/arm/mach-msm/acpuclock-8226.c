@@ -73,12 +73,14 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p1[] = {
  	{ 1,  998400, ACPUPLL, 5, 0,   990000,   990000, 7 },
  	{ 1, 1094400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
  	{ 1, 1190400, ACPUPLL, 5, 0,   1025000,   1025000, 7 },
- 	// Overclock frequencies, full range (1.3 to 1.6 GHz): Use 1045mV to 1085mV
+ 	// Overclock frequencies, full range (1.3 to 1.6 GHz): Use 1045mV to 1100mV
  	{ 1, 1305600, ACPUPLL, 5, 0,   1045000,   1045000, 7 },
  	{ 1, 1344000, ACPUPLL, 5, 0,   1050000,   1050000, 7 },
  	{ 1, 1401600, ACPUPLL, 5, 0,   1065000,   1065000, 7 },
  	{ 1, 1497600, ACPUPLL, 5, 0,   1075000,   1175000, 7 },
  	{ 1, 1593600, ACPUPLL, 5, 0,   1085000,   1085000, 7 },
+ 	{ 1, 1689600, ACPUPLL, 5, 0,   1095000,   1095000, 7 },
+	{ 1, 1728000, ACPUPLL, 5, 0,   1100000,   1100000, 7 },
 	{ 0 }
 };
 
@@ -96,12 +98,14 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p2[] = {
  	{ 1,  998400, ACPUPLL, 5, 0,   990000,   990000, 7 },
  	{ 1, 1094400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
  	{ 1, 1190400, ACPUPLL, 5, 0,   1025000,   1025000, 7 },
- 	// Overclock frequencies, full range (1.3 to 1.6 GHz): Use 1045mV to 1085mV
+ 	// Overclock frequencies, full range (1.3 to 1.6 GHz): Use 1045mV to 1100mV
  	{ 1, 1305600, ACPUPLL, 5, 0,   1045000,   1045000, 7 },
  	{ 1, 1344000, ACPUPLL, 5, 0,   1050000,   1050000, 7 },
  	{ 1, 1401600, ACPUPLL, 5, 0,   1065000,   1065000, 7 },
  	{ 1, 1497600, ACPUPLL, 5, 0,   1075000,   1175000, 7 },
  	{ 1, 1593600, ACPUPLL, 5, 0,   1085000,   1085000, 7 },
+ 	{ 1, 1689600, ACPUPLL, 5, 0,   1095000,   1095000, 7 },
+	{ 1, 1728000, ACPUPLL, 5, 0,   1100000,   1100000, 7 },
 	{ 0 }
 };
 static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p4[] = {
@@ -118,12 +122,14 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p4[] = {
  	{ 1,  998400, ACPUPLL, 5, 0,   990000,   990000, 7 },
  	{ 1, 1094400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
  	{ 1, 1190400, ACPUPLL, 5, 0,   1025000,   1025000, 7 },
- 	// Overclock frequencies, full range (1.3 to 1.6 GHz): Use 1045mV to 1085mV
+ 	// Overclock frequencies, full range (1.3 to 1.6 GHz): Use 1045mV to 1100mV
  	{ 1, 1305600, ACPUPLL, 5, 0,   1045000,   1045000, 7 },
  	{ 1, 1344000, ACPUPLL, 5, 0,   1050000,   1050000, 7 },
  	{ 1, 1401600, ACPUPLL, 5, 0,   1065000,   1065000, 7 },
  	{ 1, 1497600, ACPUPLL, 5, 0,   1075000,   1175000, 7 },
  	{ 1, 1593600, ACPUPLL, 5, 0,   1085000,   1085000, 7 },
+ 	{ 1, 1689600, ACPUPLL, 5, 0,   1095000,   1095000, 7 },
+	{ 1, 1728000, ACPUPLL, 5, 0,   1100000,   1100000, 7 },
 	{ 0 }
 };
 
@@ -141,12 +147,14 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p6[] = {
  	{ 1,  998400, ACPUPLL, 5, 0,   990000,   990000, 7 },
  	{ 1, 1094400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
  	{ 1, 1190400, ACPUPLL, 5, 0,   1025000,   1025000, 7 },
- 	// Overclock frequencies, full range (1.3 to 1.6 GHz): Use 1045mV to 1085mV
+ 	// Overclock frequencies, full range (1.3 to 1.6 GHz): Use 1045mV to 1100mV
  	{ 1, 1305600, ACPUPLL, 5, 0,   1045000,   1045000, 7 },
  	{ 1, 1344000, ACPUPLL, 5, 0,   1050000,   1050000, 7 },
  	{ 1, 1401600, ACPUPLL, 5, 0,   1065000,   1065000, 7 },
  	{ 1, 1497600, ACPUPLL, 5, 0,   1075000,   1175000, 7 },
  	{ 1, 1593600, ACPUPLL, 5, 0,   1085000,   1085000, 7 },
+ 	{ 1, 1689600, ACPUPLL, 5, 0,   1095000,   1095000, 7 },
+	{ 1, 1728000, ACPUPLL, 5, 0,   1100000,   1100000, 7 },
 	{ 0 }
 };
 
