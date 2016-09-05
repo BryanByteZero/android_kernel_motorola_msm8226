@@ -1,4 +1,3 @@
-
 #include <linux/sched.h>
 #include <linux/mutex.h>
 #include <linux/spinlock.h>
@@ -484,11 +483,7 @@ DECLARE_PER_CPU(struct rq, runqueues);
 #define cpu_curr(cpu)		(cpu_rq(cpu)->curr)
 #define raw_rq()		(&__raw_get_cpu_var(runqueues))
 
-<<<<<<< HEAD
-#ifdef CONFIG_INTELLI_PLUG
-=======
 #ifdef CONFIG_INTELLI_HOTPLUG
->>>>>>> b3d6147... msm: intelli_hotplug: Add Intelli Hotplug driver
 struct nr_stats_s {
 	/* time-based average load */
 	u64 nr_last_stamp;
@@ -496,14 +491,6 @@ struct nr_stats_s {
 	seqcount_t ave_seqcnt;
 };
 
-<<<<<<< HEAD
- /* 27 ~= 134217728ns = 134.2ms
- * 26 ~=  67108864ns =  67.1ms
- * 25 ~=  33554432ns =  33.5ms
- * 24 ~=  16777216ns =  16.8ms
- */
-=======
->>>>>>> b3d6147... msm: intelli_hotplug: Add Intelli Hotplug driver
 #define NR_AVE_PERIOD_EXP	28
 #define NR_AVE_SCALE(x)		((x) << FSHIFT)
 #define NR_AVE_PERIOD		(1 << NR_AVE_PERIOD_EXP)
@@ -554,6 +541,7 @@ static inline struct sched_domain *highest_flag_domain(int cpu, int flag)
 }
 
 DECLARE_PER_CPU(struct sched_domain *, sd_llc);
+DECLARE_PER_CPU(int, sd_llc_size);
 DECLARE_PER_CPU(int, sd_llc_id);
 
 #endif /* CONFIG_SMP */
@@ -912,7 +900,7 @@ extern void resched_cpu(int cpu);
 extern struct rt_bandwidth def_rt_bandwidth;
 extern void init_rt_bandwidth(struct rt_bandwidth *rt_b, u64 period, u64 runtime);
 
-extern void update_cpu_load(struct rq *this_rq);
+extern void update_idle_cpu_load(struct rq *this_rq);
 
 #ifdef CONFIG_CGROUP_CPUACCT
 #include <linux/cgroup.h>
@@ -1226,7 +1214,8 @@ extern void print_rt_stats(struct seq_file *m, int cpu);
 extern void init_cfs_rq(struct cfs_rq *cfs_rq);
 extern void init_rt_rq(struct rt_rq *rt_rq, struct rq *rq);
 
-extern void account_cfs_bandwidth_used(int enabled, int was_enabled);
+extern void cfs_bandwidth_usage_inc(void);
+extern void cfs_bandwidth_usage_dec(void);
 
 #ifdef CONFIG_NO_HZ
 enum rq_nohz_flag_bits {
