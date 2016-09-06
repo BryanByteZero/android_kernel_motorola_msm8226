@@ -61,7 +61,7 @@ static struct asmp_param_struct {
 
 static unsigned delay0 = 1;
 static unsigned long delay_jif;
-static int enabled __read_mostly = 0;
+static int enabled __read_mostly = 1;
 
 static void __cpuinit asmp_work_fn(struct work_struct *work)
 {
