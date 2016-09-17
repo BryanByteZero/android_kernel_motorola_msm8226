@@ -141,13 +141,17 @@ static struct clkctl_acpu_speed acpu_freq_tbl_8226_1p6[] = {
  	// Standard frequencies part 1 (300 to 787 MHz): use 875mV to 900mV
  	{ 1,  300000, PLL0,    4, 2,   875000,   875000, 4 },
  	{ 1,  384000, ACPUPLL, 5, 2,   885000,   885000, 4 },
+ 	{ 1,  499200, ACPUPLL, 5, 2,   CPR_CORNER_2,  0, 4 },	
  	{ 1,  600000, PLL0,    4, 0,   895000,   895000, 6 },
+ 	{ 1,  652800, ACPUPLL, 5, 0,   CPR_CORNER_4,  0, 4 },	
  	{ 1,  787200, ACPUPLL, 5, 0,   900000,   900000, 6 },
  	// Standard frequencies part 2 (998 MHz to 1.2 GHz): use 990mV to 1015mV
+ 	{ 1,  883200, ACPUPLL, 5, 0,   CPR_CORNER_4,  0, 4 },	
  	{ 1,  998400, ACPUPLL, 5, 0,   990000,   990000, 7 },
  	{ 1, 1094400, ACPUPLL, 5, 0,   1000000,   1000000, 7 },
  	{ 1, 1190400, ACPUPLL, 5, 0,   1015000,   1015000, 7 },
  	// Overclock frequencies, full range (1.3 to 1.6 GHz): Use 1025mV to 1085mV
+ 	{ 1, 1267200, ACPUPLL, 5, 0,   CPR_CORNER_12,  0, 7 },	
  	{ 1, 1305600, ACPUPLL, 5, 0,   1025000,   1025000, 7 },
  	{ 1, 1344000, ACPUPLL, 5, 0,   1030000,   1030000, 7 },
  	{ 1, 1401600, ACPUPLL, 5, 0,   1045000,   1045000, 7 },
