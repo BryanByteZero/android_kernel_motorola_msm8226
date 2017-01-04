@@ -1,0 +1,59 @@
+{
+  "name": "ZER0 Byte Kernel",
+  "short_description": "A high tweakable kernel for Moto G LTE (4G) 1st Gen (2013) Falcon for CM/LOS/AOSP K/L/M/N.",
+  "long_description": "ZER0 Byte Kernel a custom kernel with features like OC in CPU and GPU,D2TW and S2W/S2S as well other mods in sound and screen.",
+  "logo": "",
+  "xda": "https://forum.xda-developers.com/moto-g/4g-development/gpl-zer0-byte-kernel-t3503640",
+  "github": "https://github.com/BryanByteZero/android_kernel_motorola_msm8226",
+  "features": [
+    "Linux Kernel 3.4",
+    "Compiled with UBER Optimized Toolchain GCC 5.X.X",
+    "Many compilation optimize flags",
+    {
+      "name": "CPU Governors",
+      "items": [
+        "Stock CM"
+      ]
+    },
+    {
+      "name": "I/O Schedulers",
+      "items": [
+        "Stock CM"
+    ]
+    },
+    {
+      "name": "Hotplug",
+      "items": [
+        "Intelliplug 4.0",
+        "AutoSMP",
+        "Alucard Hotplug"
+    ]
+    },
+    {
+      "name": "Thermal Solution",
+      "items": [
+        "Intelli Thermal"
+    ]
+    },
+    "Power Suspend",
+    "LCD Notifier",
+    "Sweep2sleep/Sweep2wake",
+    "Adreno Idler",
+    "Advanced color control (KCAL)",
+    "CPU OC 1.6Ghz",
+    "GPU OC 600Mhz",
+    "State Notifier",
+    "And many more coming!"
+  ],
+  "downloads":  [
+    {
+      "name": "Nightly Folder",
+      "url": "https://www.androidfilehost.com/?w=files&flid=130353",
+      "md5sum": "-",
+      "changelog": [
+        "https://forum.xda-developers.com/showpost.php?s=fb690f6cc36879250bf64f7e8095ec34&p=67989917&postcount=2"
+      ],
+      "install_method": "Flash from TWRP or Flashfiy"
+    }
+  ]
+}
