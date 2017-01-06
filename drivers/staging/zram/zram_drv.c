@@ -69,16 +69,12 @@ static inline size_t z_scratch_size(void)
 /* Globals */
 static int zram_major;
 static struct zram *zram_devices;
-<<<<<<< HEAD:drivers/staging/zram/zram_drv.c
 
 /*
  * We don't need to see memory allocation errors more than once every 1
  * second to know that a problem is occurring.
  */
 #define ALLOC_ERROR_LOG_RATE_MS 1000
-=======
-static const char *default_compressor = "lzo";
->>>>>>> parent of 97b63f36afe... zram: switch to lz4 as default commpressor:drivers/block/zram/zram_drv.c
 
 /* Module params (documentation at end) */
 static unsigned int num_devices = 1;
