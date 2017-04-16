@@ -285,7 +285,7 @@ static int read_platform_resources(struct msm_vidc_core *core,
 		struct platform_device *pdev)
 {
 	if (!core || !pdev) {
-		dprintk(VIDC_ERR, "%s: Invalid params %p %p\n",
+		dprintk(VIDC_ERR, "%s: Invalid params %pK %pK\n",
 			__func__, core, pdev);
 		return -EINVAL;
 	}
@@ -319,7 +319,6 @@ static int msm_vidc_initialize_core(struct platform_device *pdev,
 	}
 
 	INIT_LIST_HEAD(&core->instances);
-	mutex_init(&core->sync_lock);
 	mutex_init(&core->lock);
 
 	core->state = VIDC_CORE_UNINIT;

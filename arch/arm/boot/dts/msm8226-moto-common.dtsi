@@ -19,6 +19,59 @@
 		reg = <0x00000000 0x00000000>,
 		      <0x00000000 0x00000000>;
 	};
+
+	cpus {
+		#size-cells = <0>;
+		#address-cells = <1>;
+
+		CPU0: cpu@0 {
+			device_type = "cpu";
+			reg = <0x0>;
+			current = <54000    //300000 kHz
+				   57000    //384000 kHz
+				   71000    //600000 kHz
+				   83000    //787200 kHz
+				   96000    //998400 kHz
+				   103000   //1094400 kHz
+				   115000>; //1190400 kHz
+		};
+
+		CPU1: cpu@1 {
+			device_type = "cpu";
+			reg = <0x0>;
+			current = <54000    //300000 kHz
+				   57000    //384000 kHz
+				   71000    //600000 kHz
+				   83000    //787200 kHz
+				   96000    //998400 kHz
+				   103000   //1094400 kHz
+				   115000>; //1190400 kHz
+		};
+
+		CPU2: cpu@2 {
+			device_type = "cpu";
+			reg = <0x0>;
+			current = <54000    //300000 kHz
+				   57000    //384000 kHz
+				   71000    //600000 kHz
+				   83000    //787200 kHz
+				   96000    //998400 kHz
+				   103000   //1094400 kHz
+				   115000>; //1190400 kHz
+		};
+
+		CPU3: cpu@3 {
+			device_type = "cpu";
+			reg = <0x0>;
+			current = <54000    //300000 kHz
+				   57000    //384000 kHz
+				   71000    //600000 kHz
+				   83000    //787200 kHz
+				   96000    //998400 kHz
+				   103000   //1094400 kHz
+				   115000>; //1190400 kHz
+		};
+	};
 };
 
 &mdss_mdp {
@@ -263,7 +316,7 @@
 	qcom,vbatdet-delta-mv = <150>;
 	qcom,ibatmax-ma = <2000>;
 	qcom,ibatterm-ma = <100>;
-	qcom,ibatsafe-ma = <3250>;
+	qcom,ibatsafe-ma = <2000>;
 	qcom,thermal-mitigation = <1500 700 600 325>;
 	qcom,tchg-mins = <512>;
 	qcom,warm-bat-decidegc = <450>;
@@ -377,7 +430,7 @@
 			qcom,vbatdet-delta-mv = <150>;
 			qcom,ibatmax-ma = <2000>;
 			qcom,ibatterm-ma = <100>;
-			qcom,ibatsafe-ma = <3250>;
+			qcom,ibatsafe-ma = <2000>;
 			qcom,thermal-mitigation = <1500 700 600 325>;
 			qcom,resume-soc = <99>;
 			qcom,tchg-mins = <150>;

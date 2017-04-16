@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python2
 # -*- coding: utf-8 -*-
 
 # Copyright (c) 2011-2012, The Linux Foundation. All rights reserved.
@@ -42,6 +42,7 @@ import subprocess
 allowed_warnings = set([
     "return_address.c:62",
     "workqueue.c:480"
+    "ene_ub6250.c:2118",
  ])
 
 # Capture the name of the object file, can find it.

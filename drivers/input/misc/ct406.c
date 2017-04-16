@@ -181,6 +181,7 @@ struct ct406_data {
 	u8 prox_offset;
 	u16 pdata_max;
 	u8 ink_type;
+	int prox_last_value;
 };
 
 static struct ct406_data *ct406_misc_data;
@@ -881,6 +882,22 @@ static int ct406_disable_prox(struct ct406_data *ct)
 	return 0;
 }
 
+static void ct406_report_prox_event(struct ct406_data *ct, int value)
+{
+	ktime_t timestamp = ktime_get_boottime();
+
+	if (ct->prox_last_value == value)
+		return;
+
+	ct->prox_last_value = value;
+
+	input_event(ct->dev, EV_SYN, SYN_TIME_SEC,
+		ktime_to_timespec(timestamp).tv_sec);
+	input_event(ct->dev, EV_SYN, SYN_TIME_NSEC,
+		ktime_to_timespec(timestamp).tv_nsec);
+	input_event(ct->dev, EV_MSC, MSC_RAW, value);
+	input_sync(ct->dev);
+}
 
 static void ct406_report_prox(struct ct406_data *ct)
 {
@@ -921,31 +938,23 @@ static void ct406_report_prox(struct ct406_data *ct)
 			pr_info("%s: Prox mode recalibrate\n", __func__);
 			ct406_enable_prox(ct);
 		}
-		if (pdata > ct->prox_high_threshold) {
-			input_event(ct->dev, EV_MSC, MSC_RAW,
-				CT406_PROXIMITY_NEAR);
-			input_sync(ct->dev);
+		if (ct->prox_high_threshold && pdata > ct->prox_high_threshold) {
+			ct406_report_prox_event(ct, CT406_PROXIMITY_NEAR);
 			ct406_prox_mode_covered(ct);
 		}
 		break;
 	case CT406_PROX_MODE_COVERED:
 		if (pdata < ct->prox_low_threshold) {
-			input_event(ct->dev, EV_MSC, MSC_RAW,
-				CT406_PROXIMITY_FAR);
-			input_sync(ct->dev);
+			ct406_report_prox_event(ct, CT406_PROXIMITY_FAR);
 			ct406_prox_mode_uncovered(ct);
 		}
 		break;
 	case CT406_PROX_MODE_STARTUP:
 		if (pdata < (ct->prox_noise_floor + ct->prox_covered_offset)) {
-			input_event(ct->dev, EV_MSC, MSC_RAW,
-				CT406_PROXIMITY_FAR);
-			input_sync(ct->dev);
+			ct406_report_prox_event(ct, CT406_PROXIMITY_FAR);
 			ct406_prox_mode_uncovered(ct);
 		} else {
-			input_event(ct->dev, EV_MSC, MSC_RAW,
-				CT406_PROXIMITY_NEAR);
-			input_sync(ct->dev);
+			ct406_report_prox_event(ct, CT406_PROXIMITY_NEAR);
 			ct406_prox_mode_covered(ct);
 		}
 		break;
@@ -955,6 +964,18 @@ static void ct406_report_prox(struct ct406_data *ct)
 	}
 
 	ct406_clear_prox_flag(ct);
+}
+
+static void ct406_report_als_event(struct ct406_data *ct, int value)
+{
+	ktime_t timestamp = ktime_get_boottime();
+
+	input_event(ct->dev, EV_SYN, SYN_TIME_SEC,
+		ktime_to_timespec(timestamp).tv_sec);
+	input_event(ct->dev, EV_SYN, SYN_TIME_NSEC,
+		ktime_to_timespec(timestamp).tv_nsec);
+	input_event(ct->dev, EV_LED, LED_MISC, value);
+	input_sync(ct->dev);
 }
 
 static void ct406_report_als(struct ct406_data *ct)
@@ -1061,8 +1082,7 @@ static void ct406_report_als(struct ct406_data *ct)
 	/* input.c filters consecutive LED_MISC values <=1. */
 	lux1 = (lux1 >= 2) ? lux1 : 2;
 
-	input_event(ct->dev, EV_LED, LED_MISC, lux1);
-	input_sync(ct->dev);
+	ct406_report_als_event(ct, lux1);
 
 	if (ct->als_first_report == 0) {
 		/* write ALS interrupt persistence */
@@ -1180,6 +1200,7 @@ static int ct406_set_prox_enable_param(const char *char_value,
 
 	if (ct406_misc_data->prox_requested) {
 		ct406_misc_data->prox_starting = 1;
+		ct406_misc_data->prox_last_value = -1;
 		queue_work(ct406_misc_data->workqueue,
 			&ct406_misc_data->work_prox_start);
 	} else {
